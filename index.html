@@ -26,9 +26,30 @@
             <h2>Taxation calculator</h2>
             <div>
                 <h3>Income tax</h3>
-                <span>How much money I have:</span>
+                <label class="form-label" for="incometaxinput">How much money I have:</label>
                 <input type="text" id="incometaxinput">
-                <p>My income tax will be: <b><span id="incometax">0%</span></b></p>
+                <p>My income tax will be: <b><span id="incometax">0</span>%</b></p>
+            </div>
+            <div>
+                <h3>Goods taxes</h3>
+                <label class="form-label" for="goodstaxinput">How much it costs:</label>
+                <input type="text" id="goodstaxinput">
+                <p>Type of goods:</p>
+                <div>
+                    <div class="form-check taxregulation_checks">
+                        <input class="form-check-input" type="radio" name="taxregulation" id="taxregulation_normal" checked>
+                        <label class="form-check-label" for="taxregulation_normal">Normal goods</label>
+                    </div>
+                    <div class="form-check taxregulation_checks">
+                        <input class="form-check-input" type="radio" name="taxregulation" id="taxregulation_high">
+                        <label class="form-check-label" for="taxregulation_high">Regulated goods (higher margin; vehicles, firearms, ...)</label>
+                    </div>
+                    <div class="form-check taxregulation_checks">
+                        <input class="form-check-input" type="radio" name="taxregulation" id="taxregulation_low">
+                        <label class="form-check-label" for="taxregulation_low">Regulated goods (lower margin; food, basic necessities, ...)</label>
+                    </div>
+                </div>
+                <p>Tax paid: <b><span id="goodstax">0</span>$</b></p>
             </div>
         </div>
     </div>
