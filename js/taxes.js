@@ -1,7 +1,7 @@
 function incomeTax() {
     let value = $("#incometaxinput").val()
     let rate = 25000 // 1% = rate
-    if($.isNumeric(val)) { // its a number and not text
+    if($.isNumeric(value)) { // its a number and not text
         let tax = value/rate
         if(tax>95) {
             tax = 95 // cant be higher
