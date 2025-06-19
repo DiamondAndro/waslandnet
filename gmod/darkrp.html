@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+    <title>Wasland DarkRP</title>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/randomname.js"></script>
+</head>
+<body>
+    <header class="container-fluid text-center border-bottom bg-dark text-light pb-5 pt-5">
+        <h1>WASLAND DARKRP SERVER</h1>
+    </header>
+    <div class="container-fluid">
+        <div class="container pt-3 pb-3 border-bottom">
+            <h2>General Server Rules</h2>
+            <ol>
+                <li>Please do not random kill.</li>
+                <li>Do not block doors or entrances with props.</li>
+                <li>Do not prop kill.</li>
+            </ol>
+            <h2>Army, WSF and Police Rules</h2>
+            <ol>
+                <li>Please do not random kill.</li>
+                <li>Please do not arrest people for no reason.</li>
+            </ol>
+            <h2>The President</h2>
+            <ol>
+                <li>Is allowed to use military and police forces to "collect taxes" (maximum 250).</li>
+                <li>Can be removed using the /demote command</li>
+            </ol>
+        </div>
+        <div class="container pt-3 pb-3 border-bottom">
+            <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3344100255">The Mod Collection</a><span> which should be just enough to see no errors.</span><br>
+            <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3121121178">The Full Mod Collection</a><span> including all serverside mods.</span>
+        </div>
+        <div class="container pt-3 pb-3 border-bottom">
+            <h2>Waslandian names</h2>
+            <p>You can get a random waslandian name for whatever reason you might need one.</p>
+            <div>
+                <p id="name">...</p>
+                <button class="btn btn-secondary" onclick="randomMaleName()">Give me a random male name</button>
+                <button class="btn btn-secondary" onclick="randomFealeName()">Give me a random female name</button>
+            </div>
+        </div>
+        <div class="container pt-3 pb-3 border-bottom">
+            <button class="btn">
+                <img src="../waslandflag2.png" class="rounded shadow" style="height: 50px;" onclick="alert('wasland')">
+            </button>
+        </div>
+    </div>
+    
+</body>
