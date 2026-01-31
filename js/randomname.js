@@ -38,17 +38,35 @@ const FemForeSLV = [
 	"Zdenka",
 	"Zlata",
 	"Tjaša",
+	"Julija",
+	"Julijana",
+	"Katerina",
+	"Monika",
+	"Olga",
+	"Jasmina",
+	"Anastasia",
+	"Karlina",
+	"Alenka",
 ]
 const FemForeKWR = [
 	// POLISH
 	"Zofia",
 	"Karolina",
 	"Ewa",
+	"Dobrosława",
+	"Oliwia",
+	"Iwona",
+	"Teresa",
+	"Ludwika",
+	"Wiktoria",
 	
 	// CROATIAN
-	"Julija",
-	"Katerina",
-	"Monika",
+	"Jelena",
+	"Božena",
+	"Anamarija",
+	"Slađana",
+	"Svjetlana",
+	"Vlatka",
 	
 	// UKRAINIAN
 	"Yulia",
@@ -57,15 +75,27 @@ const FemForeKWR = [
 	"Anastasia",
 	"Nadiya",
 	"Svitlana",
+	"Yuliana",
+	"Halyna",
 ]
 const FemForeENG = [
 	// ENGLISH
 	"Alyson",
 	"Astrid",
+	"Alexandra",
+	"Alice",
+	"Alisha",
+	"Allyson",
+	"Amy",
+	"Andrea",
+	"Ashley",
+	"Anna",
 	"Brenda",
 	"Becky",
+	"Betsy",
 	"Chloe",
 	"Carol",
+	"Carolyn",
 	"Clementine",
 	"Christi",
 	"Darla",
@@ -73,19 +103,28 @@ const FemForeENG = [
 	"Ellie",
 	"Emma",
 	"Enid",
+	"Eva",
 	"Gwen",
 	"Georgia",
 	"Hayley",
 	"Helen",
 	"Isla",
+	"Iris",
 	"Ivy",
 	"Rachel",
 	"Janey",
+	"Jenna",
+	"Jess",
 	"Edith",
 	"Lucy",
+	"Lilla",
+	"Lois",
 	"Nancy",
 	"Stephanie",
+	"Sophie",
 	"Kim",
+	"Kaylee",
+	"Kirsteen",
 ]
 
 const MaleFore = [
@@ -152,8 +191,19 @@ const MaleForeSLV = [
 	"Zlatan",
 	"Tjaš",
 	"Erik",
+	"Svetoslav",
+	"Tomislav",
 ]
 const MaleForeKWR = [
+	// CROATIAN
+	"Mateo",
+	"Godzimir",
+	"Slavomir",
+	"Domagoj",
+	"Dražen",
+	"Nikola",
+	"Jurica",
+
 	// UKRAINIAN
 	"Artyom",
 	"Igor",
@@ -168,6 +218,13 @@ const MaleForeKWR = [
 	"Borzysław",
 	"Dobiesław",
 	"Grzegorz",
+	"Janisław",
+	"Michał",
+	"Witold",
+	"Sławomir",
+	"Piotr",
+	"Hubert",
+	"Dawid",
 ]
 const MaleForeENG = [
 	// ENGLISH
@@ -338,10 +395,16 @@ const SurnameWL = [
 	"Pomorec",
 	"Železni",
 	"Vojak",
+	"Blagov",
+	"Zelenc",
+	"Železnik",
+	"Rudnik",
 	// Staro-waslandski
 	"Raziskalsky",
 	"Katrnisky",
 	"Delsky",
+	"Dragoslavsky",
+	"Miroslavsky",
 	// Srbo-waslandski
 	"Rudny",
 	"Radnišky",
@@ -356,7 +419,6 @@ const SurnameWL = [
 	"Češki",
 	"Karpenski", // UA
 	"Bysiewiczski", // PL
-	"Amerikanski", // US/SL
 ]
 const SurnameENG = [
 	// ENGLISH
