@@ -16,6 +16,22 @@
         <div class="container pt-3 pb-3 border-bottom">
             <h2>Waslandian names</h2>
             <p>You can get a random waslandian name for whatever reason you might need one.</p>
+            <div class="form-check nameorigin_checks">
+                <input class="form-check-input" name="nameorigin" type="radio" id="centralzhesa" checked>
+                <label class="form-check-label" for="centralzhesa">Wasland & Central Zhesa <i>(ZH, ZA, WL Region)</i></label>
+            </div>
+            <div class="form-check nameorigin_checks">
+                <input class="form-check-input" name="nameorigin" type="radio" id="southernzhesa">
+                <label class="form-check-label" for="southernzhesa">Southern Zhesa <i>(PZ Region)</i></label>
+            </div>
+            <div class="form-check nameorigin_checks">
+                <input class="form-check-input" name="nameorigin" type="radio" id="northernzhesa">
+                <label class="form-check-label" for="northernzhesa">Northern Zhesa <i>(DV Region)</i></label>
+            </div>
+            <div class="form-check nameorigin_checks">
+                <input class="form-check-input" name="nameorigin" type="radio" id="anyregion">
+                <label class="form-check-label" for="anyregion">Any <i>(all possibilities allow mixing of languages)</i></label>
+            </div>
             <div>
                 <p id="name">...</p>
                 <button class="btn btn-secondary" onclick="randomMaleName()">give me a random male name</button>

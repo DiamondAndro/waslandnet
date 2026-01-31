@@ -1,32 +1,11 @@
 const FemFore = [
-	// ENGLISH
-	"Alyson",
-	"Astrid",
-	"Brenda",
-	"Becky",
-	"Chloe",
-	"Carol",
-	"Clementine",
-	"Christi",
-	"Darla",
-	"Elizabeth",
-	"Ellie",
-	"Emma",
-	"Enid",
-	"Gwen",
-	"Georgia",
-	"Hayley",
-	"Helen",
-	"Isla",
-	"Ivy",
-	"Rachel",
-	"Janey",
-	"Edith",
-	"Lucy",
-	"Nancy",
-	"Stephanie",
-	"Kim",
-	
+	// REFERENCES
+	"Alyx",
+	"Missy",
+	"Catherine"
+]
+
+const FemForeSLV = [
 	// SLOVENO/SLAVIC
 	"Ajda",
 	"Andreja",
@@ -59,7 +38,8 @@ const FemFore = [
 	"Zdenka",
 	"Zlata",
 	"Tjaša",
-	
+]
+const FemForeKWR = [
 	// POLISH
 	"Zofia",
 	"Karolina",
@@ -77,19 +57,48 @@ const FemFore = [
 	"Anastasia",
 	"Nadiya",
 	"Svitlana",
-	
-	// GERMAN
-	"Heidi",
-	"Karolin",
-	"Vanessa",
-	
-	// REFERENCES
-	"Alyx",
-	"Missy",
-	"Catherine"
 ]
+const FemForeENG = [
+	// ENGLISH
+	"Alyson",
+	"Astrid",
+	"Brenda",
+	"Becky",
+	"Chloe",
+	"Carol",
+	"Clementine",
+	"Christi",
+	"Darla",
+	"Elizabeth",
+	"Ellie",
+	"Emma",
+	"Enid",
+	"Gwen",
+	"Georgia",
+	"Hayley",
+	"Helen",
+	"Isla",
+	"Ivy",
+	"Rachel",
+	"Janey",
+	"Edith",
+	"Lucy",
+	"Nancy",
+	"Stephanie",
+	"Kim",
+]
+
 const MaleFore = [
-	// SLOVENIAN
+	// REFERENCES
+	"Ryan",
+	"Eli",
+	"Barney",
+	"Hank",
+	"Michal",
+	"Markku",
+]
+const MaleForeSLV = [
+	// SLOVENIAN/SLAVIC/WASLANDIAN
 	"Aleš",
 	"Andrej",
 	"Anton",
@@ -143,7 +152,8 @@ const MaleFore = [
 	"Zlatan",
 	"Tjaš",
 	"Erik",
-	
+]
+const MaleForeKWR = [
 	// UKRAINIAN
 	"Artyom",
 	"Igor",
@@ -158,7 +168,8 @@ const MaleFore = [
 	"Borzysław",
 	"Dobiesław",
 	"Grzegorz",
-	
+]
+const MaleForeENG = [
 	// ENGLISH
 	"Jeff",
 	"Eric",
@@ -216,16 +227,43 @@ const MaleFore = [
 	"Friedrich",
 	"Patrick",
 	"Walter",
-	
-	// REFERENCES
-	"Ryan",
-	"Eli",
-	"Barney",
-	"Hank",
-	"Michal",
-	"Markku",
 ]
+
 const Surname = [
+	// REFERENCES
+	"Kleiner",
+	"Bateman",
+	"Allen",
+	"Freeman",
+	"Boetticher",
+	"Pinkman",
+	"Wick",
+	"Hawkfield",
+	"Grimes",
+	"Bellic",
+	"Walsh",
+	"Brzęczyszczykiewicz",
+	"Goodman",
+	"Gosling",
+	"Vance",
+	"Hamlin",
+	"McGill",
+	"Newell",
+	"Calhoun",
+	"Breen",
+	"Schrader",
+	"Ermeň",
+	"Akers",
+	"Strasky",
+	"Siltanen",
+	"Walter",
+	"Hartmann",
+	"Kleinmann",
+	"Berg",
+	"Lawens",
+	"Fischbach",
+]
+const SurnameSLV = [
 	// SLOVENIAN
 	"Aljaž",
 	"Avsenik",
@@ -266,7 +304,8 @@ const Surname = [
 	"Vučkić",
 	"Žagar",
 	"Grobelnik",
-	
+]
+const SurnameKWR = [
 	// UKRAINIAN
 	"Shevchenko",
 	"Tymchuk",
@@ -286,26 +325,9 @@ const Surname = [
 	"Mazower",
 	"Bysiewicz",
 	"Lubiejewski",
-	
+]
+const SurnameWL = [
 	// WASLANDO/SLAVIC WASLANDIAN
-	"Elsterski",
-	"Medved",
-	"Zasavec",
-	"Strelovčič",
-	"Kamnič",
-	"Koworski",
-	"Novrok",
-	"Pomorec",
-	"Železni",
-	"Vojak",
-	// Staro-waslandski
-	"Raziskalsky",
-	"Katrnisky",
-	"Delsky",
-	// Srbo-waslandski
-	"Rudny",
-	"Radnišky",
-	
 	"Elsterski",
 	"Medved",
 	"Zasavec",
@@ -335,18 +357,8 @@ const Surname = [
 	"Karpenski", // UA
 	"Bysiewiczski", // PL
 	"Amerikanski", // US/SL
-	
-	"Kopitarski",
-	"Ermenski",
-	"Zasavski",
-	"Slovenski",
-	"Polski",
-	"Ukrainski",
-	"Češki",
-	"Karpenski", // UA
-	"Bysiewiczski", // PL
-	"Amerikanski", // US/SL
-	
+]
+const SurnameENG = [
 	// ENGLISH
 	"Adams",
 	"Arkwright",
@@ -372,58 +384,120 @@ const Surname = [
 	"Bärwald",
 	"Moschkau",
 	"Rakowitz",
-	
-	// REFERENCES
-	"Kleiner",
-	"Bateman",
-	"Allen",
-	"Freeman",
-	"Boetticher",
-	"Pinkman",
-	"Wick",
-	"Hawkfield",
-	"Grimes",
-	"Bellic",
-	"Walsh",
-	"Brzęczyszczykiewicz",
-	"Goodman",
-	"Gosling",
-	"Vance",
-	"Hamlin",
-	"McGill",
-	"Newell",
-	"Calhoun",
-	"Breen",
-	"Schrader",
-	"Ermeň",
-	"Akers",
-	"Strasky",
-	"Siltanen",
-	"Walter",
-	"Hartmann",
-	"Kleinmann",
-	"Berg",
-	"Lawens",
-	"Fischbach",
 ]
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
 }
 
-function setName(name) {
+function setName(gend) {
+	let central = $("#centralzhesa:checked").val()
+    let southern = $("#southernzhesa:checked").val()
+    let northern = $("#northernzhesa:checked").val()
+
     // surnames are here, since they aren't gendered
-    let surname = Surname[getRndInteger(0,Surname.length)]
-    let full = `<b>${name} ${surname}</b>`
+    // let surname = Surname[getRndInteger(0,Surname.length)]
+	let surname = null
+    let name = null
+
+	if (gend == "m") {
+		// Male
+		if (central) { // CENTRAL ZHESA - ZASAVA, WASLAND
+			name = MaleForeSLV[getRndInteger(0,MaleForeSLV.length)]
+			let temp = SurnameWL.concat(SurnameSLV)
+			surname = temp[getRndInteger(0,temp.length)]
+		} else if(southern) { // SOUTHERN ZHESA - PORT OF ZHESA
+			let type = getRndInteger(0,4)
+			if (type == 0) { // ENGLISH
+				name = MaleForeENG[getRndInteger(0,MaleForeENG.length)]
+				surname = SurnameENG[getRndInteger(0,SurnameENG.length)]
+			} else if (type == 1) { // WASLANDIAN
+				name = MaleForeSLV[getRndInteger(0,MaleForeSLV.length)]
+				let temp = SurnameWL.concat(SurnameSLV)
+				surname = temp[getRndInteger(0,temp.length)]
+			} else if (type == 2) { // WASLANDO-SLAVIC
+				let temp = MaleForeSLV.concat(MaleForeKWR)
+				name = temp[getRndInteger(0,temp.length)]
+				temp = SurnameWL.concat(SurnameSLV)
+				surname = temp[getRndInteger(0,temp.length)]
+			} else { // ALL OF THEM AT ONCE
+				let temp = MaleForeSLV.concat(MaleForeKWR).concat(MaleForeENG)
+				name = temp[getRndInteger(0,temp.length)]
+				temp = SurnameWL.concat(SurnameSLV).concat(SurnameENG)
+				surname = temp[getRndInteger(0,temp.length)]
+			}
+		} else if(northern) { // NORTHERN ZHESA - KOWOR, DVOREKA
+			let type = getRndInteger(0,2)
+			if (type == 1) {
+				name = MaleForeKWR[getRndInteger(0,MaleForeKWR.length)]
+				let temp = SurnameKWR.concat(SurnameWL)
+				surname = temp[getRndInteger(0,temp.length)]
+			} else {
+				let temp = MaleForeSLV.concat(MaleForeKWR)
+				name = temp[getRndInteger(0,temp.length)]
+				temp = SurnameWL.concat(SurnameSLV).concat(SurnameKWR)
+				surname = temp[getRndInteger(0,temp.length)]
+			}
+		} else { // ANY
+			let temp = MaleForeENG.concat(MaleForeKWR).concat(MaleForeSLV)
+			name = temp[getRndInteger(0,temp.length)]
+			temp = SurnameENG.concat(SurnameKWR).concat(SurnameSLV).concat(SurnameWL)
+			surname = temp[getRndInteger(0,temp.length)]
+		}
+	} else {
+		// Female
+		if (central) {
+			name = FemForeSLV[getRndInteger(0,FemForeSLV.length)]
+			let temp = SurnameWL.concat(SurnameSLV)
+			surname = temp[getRndInteger(0,temp.length)]
+		} else if(southern) {
+			let type = getRndInteger(0,5)
+			if (type == 1) { // ENGLISH
+				name = FemForeENG[getRndInteger(0,FemForeENG.length)]
+				surname = SurnameENG[getRndInteger(0,SurnameENG.length)]
+			} else if (type == 2) { // WASLANDIAN
+				name = FemForeSLV[getRndInteger(0,FemForeSLV.length)]
+				let temp = SurnameWL.concat(SurnameSLV)
+				surname = temp[getRndInteger(0,temp.length)]
+			} else if (type == 3) { // WASLANDO-SLAVIC
+				let temp = FemForeSLV.concat(FemForeKWR)
+				name = temp[getRndInteger(0,temp.length)]
+				temp = SurnameWL.concat(SurnameSLV)
+				surname = temp[getRndInteger(0,temp.length)]
+			} else { // ALL OF THEM AT ONCE
+				let temp = FemForeSLV.concat(FemForeKWR).concat(FemForeENG)
+				name = temp[getRndInteger(0,temp.length)]
+				temp = SurnameWL.concat(SurnameSLV).concat(SurnameENG)
+				surname = temp[getRndInteger(0,temp.length)]
+			}
+		} else if(northern) {
+			let type = getRndInteger(0,2)
+			if (type == 1) {
+				name = FemForeKWR[getRndInteger(0,FemForeKWR.length)]
+				let temp = SurnameKWR.concat(SurnameWL)
+				surname = temp[getRndInteger(0,temp.length)]
+			} else {
+				let temp = FemForeSLV.concat(FemForeKWR)
+				name = temp[getRndInteger(0,temp.length)]
+				temp = SurnameWL.concat(SurnameSLV).concat(SurnameKWR)
+				surname = temp[getRndInteger(0,temp.length)]
+			}
+		} else { // ANY
+			let temp = FemForeENG.concat(FemForeKWR).concat(FemForeSLV)
+			name = temp[getRndInteger(0,temp.length)]
+			temp = SurnameENG.concat(SurnameKWR).concat(SurnameSLV).concat(SurnameWL)
+			surname = temp[getRndInteger(0,temp.length)]
+		}
+	}
+
+	let full = `<b>${name} ${surname}</b>`
     $("#name").html(full)
 }
 
 function randomMaleName() {
-    let name = MaleFore[getRndInteger(0,MaleFore.length)]
-    setName(name)
+    setName("m")
 }
 
 function randomFealeName() {
-    let name = FemFore[getRndInteger(0,FemFore.length)]
-    setName(name)
+	setName("f")
 }
