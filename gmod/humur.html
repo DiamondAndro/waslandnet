@@ -48,12 +48,16 @@
         </div>
 		<div class="container" id="dinoContainer">
 			<img id="dino" src="https://avatars.fastly.steamstatic.com/22f52f1a6c3d5b398c4d03de492d90ad203f750d_full.jpg">
-			<button type="button" class="btn btn-primary" onclick="explosiva()">Click to exterminate one_dino</button>
+			<button type="button" class="btn btn-primary" onclick="explosiva()">Click to destroy one_dino</button>
 			<script>
 			function explosiva() {
 			    console.log("Dino exterminated!");
                 $("#dino").attr("src","explosiva.gif")
                 setTimeout(function() { $("#dinoContainer").hide() },1500)
+                setTimeout(function() { 
+                    $("#dinoContainer").show()
+                    $("#dino").attr("src","https://avatars.fastly.steamstatic.com/22f52f1a6c3d5b398c4d03de492d90ad203f750d_full.jpg")
+                 },5000)
 			}
 			</script>
 		</div>
