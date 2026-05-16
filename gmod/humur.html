@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+    <title>Al-Humur</title>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/randomname.js"></script>
+    <style>
+        .flag {
+            width: 100%;
+            height: 25em;
+        }
+
+        .flag img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            margin-bottom: 200px;
+        }
+    </style>
+</head>
+<body>
+    <header class="container-fluid text-center border-bottom bg-dark text-light pb-4 pt-4">
+        <h1>AL-HUMUR</h1>
+    </header>
+    <div class="container-fluid">
+        <div class="container pt-3 pb-3 border-bottom">
+            <h2>🛈 Basic Keybinds & Commands to play the game</h2>
+            <ul>
+                <li>bind "g" "fake" - to ragdolize</li>
+                <li>bind "b" "suicide" - to aim at your head</li>
+				<li>bind "m" "msc_swear" - vittu</li>
+            </ul>
+        </div>
+        <div class="container pt-3 pb-3 border-bottom">
+            <h2>📜 Server Rules</h2>
+            <h4>📄 Humur Rules</h4>
+            <ol>
+                <li>Do not check bodies for traitor unless you have 100% guilty a case against that person!</li>
+                <li>If you spawn as Chigurh/Seeker and someone is next to you, give them a bit of time to run away!</li>
+                <li>Above rule goes for Deathmatch aswell.</li>
+				<li>LEARN TO SIT BACK AND SPECTATE.</li>
+            </ol>
+        </div>
+        <div class="container pt-3 pb-3 border-bottom">
+            <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3401357473">The Mod Collection</a><span> which you should have installed.</span><br>
+        </div>
+		<div class="container" id="dinoContainer">
+			<img id="dino" src="https://avatars.fastly.steamstatic.com/22f52f1a6c3d5b398c4d03de492d90ad203f750d_full.jpg">
+			<button type="button" class="btn btn-primary" onclick="explosiva()">Click to exterminate one_dino</button>
+			<script>
+			function explosiva() {
+			    console.log("Dino exterminated!");
+                $("#dino").attr("src","explosiva.gif")
+                setTimeout(function() { $("#dinoContainer").hide() },1500)
+			}
+			</script>
+		</div>
+    </div>
+</body>
