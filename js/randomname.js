@@ -1,5 +1,5 @@
 const FemFore = [
-	// REFERENCES
+	// REF
 	"Alyx",
 	"Missy",
 	"Catherine"
@@ -128,7 +128,7 @@ const FemForeENG = [
 ]
 
 const MaleFore = [
-	// REFERENCES
+	// REF
 	"Ryan",
 	"Eli",
 	"Barney",
@@ -287,7 +287,7 @@ const MaleForeENG = [
 ]
 
 const Surname = [
-	// REFERENCES
+	// REF
 	"Kleiner",
 	"Bateman",
 	"Allen",
