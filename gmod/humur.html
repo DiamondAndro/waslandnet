@@ -2,8 +2,8 @@
 <head>
     <title>Al-Humur</title>
     <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="../js/jquery-3.7.1.min.js"></script>
     <script src="../js/randomname.js"></script>
     <style>
@@ -26,6 +26,7 @@
     </header>
     <div class="container-fluid">
         <div class="container pt-3 pb-3 border-bottom">
+            <h2>You can use !motd to reopen this</h2>
             <h2>🛈 Basic Keybinds & Commands to play the game</h2>
             <ul>
                 <li>bind "g" "fake" - to ragdolize</li>
@@ -40,19 +41,19 @@
             <h4>📄 Humur Rules</h4>
             <ol>
                 <li>Do not check bodies for traitor unless you have 100% guilty a case against that person!</li>
-                <li>If you spawn as Chigurh/Seeker and someone is next to you, give them a bit of time to run away!</li>
+                <li>If you spawn in combat modes and someone is next to you, give them a bit of time to run away!</li>
                 <li>Above rule goes for Deathmatch aswell.</li>
 				<li>LEARN TO SIT BACK AND SPECTATE.</li>
             </ol>
         </div>
         <div class="container pt-3 pb-3 border-bottom">
-            <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3401357473">The Mod Collection</a><span> which you should have installed.</span><br>
+            <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3730197149">The Mod Collection</a><span> which you should have installed.</span><br>
         </div>
         <div class="container pt-3 pb-3 border-bottom">
             <a href="https://discord.gg/WhqgKHfGMx">https://discord.gg/WhqgKHfGMx</a>
         </div>
         
-		<div class="container" id="dinoContainer">
+		<div class="container pt-3 pb-3 border-bottom" id="dinoContainer">
 			<img id="dino" src="https://avatars.fastly.steamstatic.com/22f52f1a6c3d5b398c4d03de492d90ad203f750d_full.jpg">
 			<button type="button" class="btn btn-primary" onclick="explosiva()">Click to destroy one_dino</button>
 			<script>
@@ -67,5 +68,107 @@
 			}
 			</script>
 		</div>
+		
+		<div class="container pt-3 pb-3 border-bottom">
+            <h2>🛈 In-Game Voting</h2>
+			<ul>
+                <li>You can use !rtv to vote for a mapvote</li>
+                <li>You can use !votemode to vote for the next round's mode</li>
+            </ul>
+            <table class="table table-striped">
+                <thead class="table-dark">
+                    <tr>
+                    <th scope="col">Mode ID to use in vote</th>
+                    <th scope="col">Mode that will be played</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>hl2dm</td>
+                        <td>Half-Life 2 Deathmatch</td>
+                    </tr>
+                    <tr>
+                        <td>muskettdm</td>
+                        <td>Civil War</td>
+                    </tr>
+                    <tr>
+                        <td>dm</td>
+                        <td>Deathmatch</td>
+                    </tr>
+                    <tr>
+                        <td>wick</td>
+                        <td>Wick</td>
+                    </tr>
+                    <tr>
+                        <td>tdm</td>
+                        <td>Team Deathmatch</td>
+                    </tr>
+                    <tr>
+                        <td>halfsword</td>
+                        <td>Scarmuch</td>
+                    </tr>
+                    <tr>
+                        <td>as</td>
+                        <td>Black Mesa</td>
+                    </tr>
+                    <tr>
+                        <td>infiltration</td>
+                        <td>Infiltration</td>
+                    </tr>
+                    <tr>
+                        <td>anomaly</td>
+                        <td>The Anomaly</td>
+                    </tr>
+                    <tr>
+                        <td>gwars</td>
+                        <td>Gang Wars</td>
+                    </tr>
+                    <tr>
+                        <td>juggernaut</td>
+                        <td>Super Juggernaut</td>
+                    </tr>
+                    <tr>
+                        <td>riot</td>
+                        <td>Riot</td>
+                    </tr>
+                    <tr>
+                        <td>criresp</td>
+                        <td>Crisis Response</td>
+                    </tr>
+                    <tr>
+                        <td>idftdm</td>
+                        <td>Operation Negev</td>
+                    </tr>
+                    <tr>
+                        <td>supewar</td>
+                        <td>Super Deathmatch</td>
+                    </tr>
+                    <tr>
+                        <td>hmcd</td>
+                        <td>Homicide</td>
+                    </tr>
+                    <tr>
+                        <td>superfighters</td>
+                        <td>Superfighters 3D</td>
+                    </tr>
+                    <tr>
+                        <td>copgang</td>
+                        <td>Cops/Gangsters</td>
+                    </tr>
+                    <tr>
+                        <td>fintdm</td>
+                        <td>Njet Molotoff</td>
+                    </tr>
+                    <tr>
+                        <td>wastdm</td>
+                        <td>Wasland War</td>
+                    </tr>
+                    <tr>
+                        <td>breach</td>
+                        <td>Breach</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
