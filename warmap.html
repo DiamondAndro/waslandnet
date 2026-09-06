@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wasland War</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #1a1a1a;
+    touch-action: none;
+  }
+
+  #title-bar {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 12px 20px 10px;
+    text-align: center;
+    touch-action: auto;
+  }
+
+  #title {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  #title2 {
+    margin: 2px 0 0;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #bbb;
+  }
+
+  #viewer {
+    width: 100%;
+    height: calc(100vh - 68px);
+    position: relative;
+    cursor: grab;
+  }
+
+  #viewer.dragging {
+    cursor: grabbing;
+  }
+
+  #image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: 0 0;
+    will-change: transform;
+  }
+
+  #image-wrapper img {
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+    max-width: none;
+  }
+
+  #controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 10;
+  }
+
+  #controls button {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255,255,255,0.9);
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+
+  #controls button:active {
+    background: rgba(255,255,255,0.7);
+  }
+
+  #hint {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-family: sans-serif;
+    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 20px;
+    pointer-events: none;
+    transition: opacity 1s ease;
+    z-index: 10;
+  }
+</style>
+</head>
+<body>
+
+<header class="text-light container-fluid text-center border-bottom">
+	<h1>WASLAND WAR MAP</h1>
+</header>
+<div class="text-light container pt-3 pb-3 border-bottom">
+	<h2>OPERATION "STRELA" - 07.02.2007</h2>
+</div>
+
+<div id="viewer">
+  <div id="image-wrapper">
+    <img id="main-image" src="warmap.png" alt="Map image not loaded??">
+  </div>
+</div>
+
+<div id="hint">Scroll or pinch to zoom · Drag to pan</div>
+
+<div id="controls">
+  <button id="zoom-in">+</button>
+  <button id="zoom-out">−</button>
+  <button id="reset">⟳</button>
+</div>
+
+<script>
+  const viewer = document.getElementById('viewer');
+  const wrapper = document.getElementById('image-wrapper');
+  const img = document.getElementById('main-image');
+  const hint = document.getElementById('hint');
+
+  let scale = 1;
+  let posX = 0;
+  let posY = 0;
+  let minScale = 1;
+  const maxScale = 8;
+
+  let isDragging = false;
+  let startX, startY;
+
+  function applyTransform() {
+    wrapper.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
+  }
+
+  function clampPosition() {
+    // Keep the image roughly within reach of the viewport (soft clamp)
+    const viewerRect = viewer.getBoundingClientRect();
+    const imgW = img.naturalWidth * scale;
+    const imgH = img.naturalHeight * scale;
+
+    const minX = Math.min(0, viewerRect.width - imgW);
+    const maxX = Math.max(0, viewerRect.width - imgW);
+    const minY = Math.min(0, viewerRect.height - imgH);
+    const maxY = Math.max(0, viewerRect.height - imgH);
+
+    // Allow generous overscroll but avoid losing the image entirely
+    const bufferX = viewerRect.width * 0.5;
+    const bufferY = viewerRect.height * 0.5;
+
+    posX = Math.max(minX - bufferX, Math.min(maxX + bufferX, posX));
+    posY = Math.max(minY - bufferY, Math.min(maxY + bufferY, posY));
+  }
+
+  function fitImageToScreen() {
+    const viewerRect = viewer.getBoundingClientRect();
+    const scaleX = viewerRect.width / img.naturalWidth;
+    const scaleY = viewerRect.height / img.naturalHeight;
+    minScale = Math.min(scaleX, scaleY) * 0.95;
+    scale = minScale;
+
+    posX = (viewerRect.width - img.naturalWidth * scale) / 2;
+    posY = (viewerRect.height - img.naturalHeight * scale) / 2;
+
+    applyTransform();
+  }
+
+  img.addEventListener('load', fitImageToScreen);
+  if (img.complete && img.naturalWidth) fitImageToScreen();
+
+  window.addEventListener('resize', fitImageToScreen);
+
+  function zoomAt(clientX, clientY, factor) {
+    const viewerRect = viewer.getBoundingClientRect();
+    const mouseX = clientX - viewerRect.left;
+    const mouseY = clientY - viewerRect.top;
+
+    const newScale = Math.max(minScale, Math.min(maxScale, scale * factor));
+    const scaleRatio = newScale / scale;
+
+    posX = mouseX - (mouseX - posX) * scaleRatio;
+    posY = mouseY - (mouseY - posY) * scaleRatio;
+
+    scale = newScale;
+    clampPosition();
+    applyTransform();
+  }
+
+  // Mouse wheel zoom
+  viewer.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
+    zoomAt(e.clientX, e.clientY, factor);
+    fadeHint();
+  }, { passive: false });
+
+  // Mouse drag pan
+  viewer.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    viewer.classList.add('dragging');
+    startX = e.clientX - posX;
+    startY = e.clientY - posY;
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    posX = e.clientX - startX;
+    posY = e.clientY - startY;
+    applyTransform();
+  });
+
+  window.addEventListener('mouseup', () => {
+    isDragging = false;
+    viewer.classList.remove('dragging');
+    clampPosition();
+    applyTransform();
+  });
+
+  // Touch support: drag with one finger, pinch to zoom with two
+  let lastTouchDist = null;
+  let lastTouchMid = null;
+
+  function getTouchDist(touches) {
+    const dx = touches[0].clientX - touches[1].clientX;
+    const dy = touches[0].clientY - touches[1].clientY;
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  function getTouchMid(touches) {
+    return {
+      x: (touches[0].clientX + touches[1].clientX) / 2,
+      y: (touches[0].clientY + touches[1].clientY) / 2
+    };
+  }
+
+  viewer.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      isDragging = true;
+      startX = e.touches[0].clientX - posX;
+      startY = e.touches[0].clientY - posY;
+    } else if (e.touches.length === 2) {
+      isDragging = false;
+      lastTouchDist = getTouchDist(e.touches);
+      lastTouchMid = getTouchMid(e.touches);
+    }
+    fadeHint();
+  }, { passive: false });
+
+  viewer.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    if (e.touches.length === 1 && isDragging) {
+      posX = e.touches[0].clientX - startX;
+      posY = e.touches[0].clientY - startY;
+      applyTransform();
+    } else if (e.touches.length === 2) {
+      const newDist = getTouchDist(e.touches);
+      const newMid = getTouchMid(e.touches);
+      const factor = newDist / lastTouchDist;
+      zoomAt(newMid.x, newMid.y, factor);
+      lastTouchDist = newDist;
+      lastTouchMid = newMid;
+    }
+  }, { passive: false });
+
+  viewer.addEventListener('touchend', (e) => {
+    if (e.touches.length === 0) {
+      isDragging = false;
+      clampPosition();
+      applyTransform();
+    }
+    lastTouchDist = null;
+  });
+
+  // Button controls
+  document.getElementById('zoom-in').addEventListener('click', () => {
+    const rect = viewer.getBoundingClientRect();
+    zoomAt(rect.left + rect.width / 2, rect.top + rect.height / 2, 1.3);
+  });
+
+  document.getElementById('zoom-out').addEventListener('click', () => {
+    const rect = viewer.getBoundingClientRect();
+    zoomAt(rect.left + rect.width / 2, rect.top + rect.height / 2, 1 / 1.3);
+  });
+
+  document.getElementById('reset').addEventListener('click', fitImageToScreen);
+
+  function fadeHint() {
+    hint.style.opacity = '0';
+  }
+  setTimeout(fadeHint, 3000);
+</script>
+
+</body>
+</html>
