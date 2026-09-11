@@ -117,8 +117,10 @@
     padding-bottom: 4px;
   }
 
-  #toggle-btn {
-    min-width: 110px;
+  .date-btn.active {
+    background: #fff;
+    color: #000;
+    font-weight: 700;
   }
 </style>
 </head>
@@ -128,10 +130,8 @@
 	<h1>WASLAND WAR MAP</h1>
 </header>
 <div class="text-light container pt-3 pb-3 border-bottom">
-	<h2 id="map-date">OPERATION "STRELA" - 15.02.2007</h2>
-	<div id="map-toggle-bar">
-		<button id="toggle-btn" class="btn btn-sm btn-light">Previous</button>
-	</div>
+	<h2 id="map-date">OPERATION "STRELA"</h2>
+	<div id="map-toggle-bar"></div>
 </div>
 
 <div id="viewer">
@@ -154,36 +154,77 @@
   const img = document.getElementById('main-image');
   const hint = document.getElementById('hint');
   const mapDate = document.getElementById('map-date');
-  const toggleBtn = document.getElementById('toggle-btn');
+  const toggleBar = document.getElementById('map-toggle-bar');
 
-  const ORIGINAL_IMAGE = 'warmap.png';
-  const ORIGINAL_DATE = mapDate.textContent;
-  const PRESENT_IMAGE = 'warmap2.png';
+  // ---- List every warmap date here, in "DD.MM.YYYY" format ----
+  // File is expected at: warmaps/DD.MM.YYYY.png
+  const MAP_DATES = [
+    '07.02.2007',
+	'08.02.2007',
+	'15.02.2007',
+  ];
 
-  // Edit this to whatever label you want shown when "Present" is active
-  const PRESENT_DATE = 'OPERATION "STRELA" - 08.02.2007';
+  const MAPS_FOLDER = 'warmaps';
 
-  let showingPresent = false;
+  function parseDDMMYYYY(str) {
+    const [d, m, y] = str.split('.').map(Number);
+    return new Date(y, m - 1, d);
+  }
 
-  toggleBtn.addEventListener('click', () => {
-    if (!showingPresent) {
-      // Switch to "present" view
-      img.src = PRESENT_IMAGE;
-      mapDate.textContent = PRESENT_DATE;
-      toggleBtn.textContent = 'Present';
-      showingPresent = true;
-    } else {
-      // Switch back to the original/previous view
-      img.src = ORIGINAL_IMAGE;
-      mapDate.textContent = ORIGINAL_DATE;
-      toggleBtn.textContent = 'Previous';
-      showingPresent = false;
-    }
-    // Re-fit the newly loaded image once it's ready
+  // Sort chronologically, oldest -> newest
+  const sortedDates = [...MAP_DATES].sort(
+    (a, b) => parseDDMMYYYY(a) - parseDDMMYYYY(b)
+  );
+
+  const dateButtons = {};
+
+  // ---- Define operations by date range here ----
+  // "to" is inclusive. Ranges should not overlap.
+  const OPERATIONS = [
+    { name: 'STRELA', from: '01.01.2007', to: '31.12.2007' }
+  ];
+
+  const sortedOperations = OPERATIONS.map((op) => ({
+    ...op,
+    fromDate: parseDDMMYYYY(op.from),
+    toDate: parseDDMMYYYY(op.to)
+  }));
+
+  function operationNameFor(dateStr) {
+    const d = parseDDMMYYYY(dateStr);
+    const match = sortedOperations.find(
+      (op) => d >= op.fromDate && d <= op.toDate
+    );
+    return match ? match.name : 'UNKNOWN';
+  }
+
+  function selectDate(dateStr) {
+    img.src = `${MAPS_FOLDER}/${dateStr}.png`;
+    mapDate.textContent = `OPERATION "${operationNameFor(dateStr)}" - ${dateStr}`;
+
+    Object.entries(dateButtons).forEach(([d, btn]) => {
+      btn.classList.toggle('active', d === dateStr);
+    });
+
     if (img.complete && img.naturalWidth) {
       fitImageToScreen();
     }
+  }
+
+  sortedDates.forEach((dateStr) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'btn btn-sm btn-light date-btn';
+    btn.textContent = dateStr;
+    btn.addEventListener('click', () => selectDate(dateStr));
+    toggleBar.appendChild(btn);
+    dateButtons[dateStr] = btn;
   });
+
+  // Default to the latest (most recent) date
+  if (sortedDates.length) {
+    selectDate(sortedDates[sortedDates.length - 1]);
+  }
 
   let scale = 1;
   let posX = 0;
