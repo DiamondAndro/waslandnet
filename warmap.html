@@ -107,6 +107,19 @@
     transition: opacity 1s ease;
     z-index: 10;
   }
+
+  #map-toggle-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: 4px;
+  }
+
+  #toggle-btn {
+    min-width: 110px;
+  }
 </style>
 </head>
 <body>
@@ -115,7 +128,10 @@
 	<h1>WASLAND WAR MAP</h1>
 </header>
 <div class="text-light container pt-3 pb-3 border-bottom">
-	<h2>OPERATION "STRELA" - 15.02.2007</h2>
+	<h2 id="map-date">OPERATION "STRELA" - 15.02.2007</h2>
+	<div id="map-toggle-bar">
+		<button id="toggle-btn" class="btn btn-sm btn-light">Previous</button>
+	</div>
 </div>
 
 <div id="viewer">
@@ -137,6 +153,37 @@
   const wrapper = document.getElementById('image-wrapper');
   const img = document.getElementById('main-image');
   const hint = document.getElementById('hint');
+  const mapDate = document.getElementById('map-date');
+  const toggleBtn = document.getElementById('toggle-btn');
+
+  const ORIGINAL_IMAGE = 'warmap.png';
+  const ORIGINAL_DATE = mapDate.textContent;
+  const PRESENT_IMAGE = 'warmap2.png';
+
+  // Edit this to whatever label you want shown when "Present" is active
+  const PRESENT_DATE = 'OPERATION "STRELA" - 08.02.2007';
+
+  let showingPresent = false;
+
+  toggleBtn.addEventListener('click', () => {
+    if (!showingPresent) {
+      // Switch to "present" view
+      img.src = PRESENT_IMAGE;
+      mapDate.textContent = PRESENT_DATE;
+      toggleBtn.textContent = 'Present';
+      showingPresent = true;
+    } else {
+      // Switch back to the original/previous view
+      img.src = ORIGINAL_IMAGE;
+      mapDate.textContent = ORIGINAL_DATE;
+      toggleBtn.textContent = 'Previous';
+      showingPresent = false;
+    }
+    // Re-fit the newly loaded image once it's ready
+    if (img.complete && img.naturalWidth) {
+      fitImageToScreen();
+    }
+  });
 
   let scale = 1;
   let posX = 0;
