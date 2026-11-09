@@ -18,7 +18,7 @@ const FemForeSLV = [
 	"Kaja",
 	"Katya",
 	"Lina",
-	"Larissa",
+	"Larisa",
 	"Lucija",
 	"Marija",
 	"Nataliya",
@@ -34,19 +34,21 @@ const FemForeSLV = [
 	"Urška",
 	"Vida",
 	"Valeria",
-	"Veronica",
+	"Veronika",
 	"Zdenka",
 	"Zlata",
 	"Tjaša",
 	"Julija",
 	"Julijana",
 	"Katerina",
+	"Sofija",
 	"Monika",
 	"Olga",
 	"Jasmina",
 	"Anastasia",
 	"Karlina",
 	"Alenka",
+	"Nika",
 ]
 const FemForeKWR = [
 	// POLISH
@@ -64,9 +66,16 @@ const FemForeKWR = [
 	"Jelena",
 	"Božena",
 	"Anamarija",
+	"Adrijana",
 	"Slađana",
 	"Svjetlana",
+	"Snežana",
 	"Vlatka",
+	"Nevena",
+	"Tijana",
+	"Nikolina",
+	"Irina",
+	"Ivana",
 	
 	// UKRAINIAN
 	"Yulia",
@@ -125,6 +134,11 @@ const FemForeENG = [
 	"Kim",
 	"Kaylee",
 	"Kirsteen",
+
+	// REF
+	"Alyx",
+	"Missy",
+	"Catherine"
 ]
 
 const MaleFore = [
@@ -172,6 +186,7 @@ const MaleForeSLV = [
 	"Matej",
 	"Matjaž",
 	"Miroslav",
+	"Mihael",
 	"Nikolaj",
 	"Primož",
 	"Rok",
@@ -196,13 +211,29 @@ const MaleForeSLV = [
 ]
 const MaleForeKWR = [
 	// CROATIAN
-	"Mateo",
-	"Godzimir",
-	"Slavomir",
+	"Aljoša",
 	"Domagoj",
 	"Dražen",
+	"Dušan",
+	"Darko",
+	"Mateo",
+	"Marijan",
+	"Godzimir",
+	"Gašpar",
+	"Slavomir",
+	"Stanimir",
+	"Stjepan",
+	"Radovan",
+	"Pavle",
 	"Nikola",
 	"Jurica",
+	"Jasmin",
+	"Ljubo",
+	"Valentin",
+	"Vinko",
+	"Vlado",
+	"Franko",
+	"Zlatko",
 
 	// UKRAINIAN
 	"Artyom",
@@ -211,6 +242,7 @@ const MaleForeKWR = [
 	"Myroslav",
 	"Petro",
 	"Sasha",
+	"Dmitry",
 	
 	// POLISH
 	"Ignacy",
@@ -284,42 +316,28 @@ const MaleForeENG = [
 	"Friedrich",
 	"Patrick",
 	"Walter",
+
+	// REF
+	"Ryan",
+	"Eli",
+	"Barney",
+	"Hank",
 ]
 
 const Surname = [
 	// REF
 	"Kleiner",
-	"Bateman",
-	"Allen",
-	"Freeman",
-	"Boetticher",
-	"Pinkman",
-	"Wick",
-	"Hawkfield",
-	"Grimes",
 	"Bellic",
-	"Walsh",
 	"Brzęczyszczykiewicz",
-	"Goodman",
-	"Gosling",
-	"Vance",
-	"Hamlin",
-	"McGill",
-	"Newell",
-	"Calhoun",
-	"Breen",
-	"Schrader",
+	
 	"Ermeň",
-	"Akers",
-	"Strasky",
+	
 	"Siltanen",
-	"Walter",
 	"Hartmann",
 	"Kleinmann",
 	"Berg",
-	"Lawens",
-	"Fischbach",
 ]
+
 const SurnameSLV = [
 	// SLOVENIAN
 	"Aljaž",
@@ -382,6 +400,9 @@ const SurnameKWR = [
 	"Mazower",
 	"Bysiewicz",
 	"Lubiejewski",
+
+	// REF
+	"Michal",
 ]
 const SurnameWL = [
 	// WASLANDO/SLAVIC WASLANDIAN
@@ -446,6 +467,31 @@ const SurnameENG = [
 	"Bärwald",
 	"Moschkau",
 	"Rakowitz",
+
+	// REF
+	"Lawens",
+	"Fischbach",
+	"Walter",
+	"Goodman",
+	"Gosling",
+	"Vance",
+	"Hamlin",
+	"McGill",
+	"Newell",
+	"Calhoun",
+	"Walsh",
+	"Bateman",
+	"Allen",
+	"Freeman",
+	"Boetticher",
+	"Pinkman",
+	"Wick",
+	"Hawkfield",
+	"Grimes",
+	"Akers",
+	"Strasky",
+	"Breen",
+	"Schrader",
 ]
 
 function getRndInteger(min, max) {
