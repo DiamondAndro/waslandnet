@@ -494,119 +494,54 @@ const SurnameENG = [
 	"Schrader",
 ]
 
-function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min) ) + min;
-}
-
-function setName(gend) {
-	let central = $("#centralzhesa:checked").val()
-    let southern = $("#southernzhesa:checked").val()
-    let northern = $("#northernzhesa:checked").val()
-
-    // surnames are here, since they aren't gendered
-    // let surname = Surname[getRndInteger(0,Surname.length)]
-	let surname = null
-    let name = null
-
-	if (gend == "m") {
-		// Male
-		if (central) { // CENTRAL ZHESA - ZASAVA, WASLAND
-			name = MaleForeSLV[getRndInteger(0,MaleForeSLV.length)]
-			let temp = SurnameWL.concat(SurnameSLV)
-			surname = temp[getRndInteger(0,temp.length)]
-		} else if(southern) { // SOUTHERN ZHESA - PORT OF ZHESA
-			let type = getRndInteger(0,4)
-			if (type == 0) { // ENGLISH
-				name = MaleForeENG[getRndInteger(0,MaleForeENG.length)]
-				surname = SurnameENG[getRndInteger(0,SurnameENG.length)]
-			} else if (type == 1) { // WASLANDIAN
-				name = MaleForeSLV[getRndInteger(0,MaleForeSLV.length)]
-				let temp = SurnameWL.concat(SurnameSLV)
-				surname = temp[getRndInteger(0,temp.length)]
-			} else if (type == 2) { // WASLANDO-SLAVIC
-				let temp = MaleForeSLV.concat(MaleForeKWR)
-				name = temp[getRndInteger(0,temp.length)]
-				temp = SurnameWL.concat(SurnameSLV)
-				surname = temp[getRndInteger(0,temp.length)]
-			} else { // ALL OF THEM AT ONCE
-				let temp = MaleForeSLV.concat(MaleForeKWR).concat(MaleForeENG)
-				name = temp[getRndInteger(0,temp.length)]
-				temp = SurnameWL.concat(SurnameSLV).concat(SurnameENG)
-				surname = temp[getRndInteger(0,temp.length)]
-			}
-		} else if(northern) { // NORTHERN ZHESA - KOWOR, DVOREKA
-			let type = getRndInteger(0,2)
-			if (type == 1) {
-				name = MaleForeKWR[getRndInteger(0,MaleForeKWR.length)]
-				let temp = SurnameKWR.concat(SurnameWL)
-				surname = temp[getRndInteger(0,temp.length)]
-			} else {
-				let temp = MaleForeSLV.concat(MaleForeKWR)
-				name = temp[getRndInteger(0,temp.length)]
-				temp = SurnameWL.concat(SurnameSLV).concat(SurnameKWR)
-				surname = temp[getRndInteger(0,temp.length)]
-			}
-		} else { // ANY
-			let temp = MaleForeENG.concat(MaleForeKWR).concat(MaleForeSLV)
-			name = temp[getRndInteger(0,temp.length)]
-			temp = SurnameENG.concat(SurnameKWR).concat(SurnameSLV).concat(SurnameWL)
-			surname = temp[getRndInteger(0,temp.length)]
-		}
-	} else {
-		// Female
-		if (central) {
-			name = FemForeSLV[getRndInteger(0,FemForeSLV.length)]
-			let temp = SurnameWL.concat(SurnameSLV)
-			surname = temp[getRndInteger(0,temp.length)]
-		} else if(southern) {
-			let type = getRndInteger(0,5)
-			if (type == 1) { // ENGLISH
-				name = FemForeENG[getRndInteger(0,FemForeENG.length)]
-				surname = SurnameENG[getRndInteger(0,SurnameENG.length)]
-			} else if (type == 2) { // WASLANDIAN
-				name = FemForeSLV[getRndInteger(0,FemForeSLV.length)]
-				let temp = SurnameWL.concat(SurnameSLV)
-				surname = temp[getRndInteger(0,temp.length)]
-			} else if (type == 3) { // WASLANDO-SLAVIC
-				let temp = FemForeSLV.concat(FemForeKWR)
-				name = temp[getRndInteger(0,temp.length)]
-				temp = SurnameWL.concat(SurnameSLV)
-				surname = temp[getRndInteger(0,temp.length)]
-			} else { // ALL OF THEM AT ONCE
-				let temp = FemForeSLV.concat(FemForeKWR).concat(FemForeENG)
-				name = temp[getRndInteger(0,temp.length)]
-				temp = SurnameWL.concat(SurnameSLV).concat(SurnameENG)
-				surname = temp[getRndInteger(0,temp.length)]
-			}
-		} else if(northern) {
-			let type = getRndInteger(0,2)
-			if (type == 1) {
-				name = FemForeKWR[getRndInteger(0,FemForeKWR.length)]
-				let temp = SurnameKWR.concat(SurnameWL)
-				surname = temp[getRndInteger(0,temp.length)]
-			} else {
-				let temp = FemForeSLV.concat(FemForeKWR)
-				name = temp[getRndInteger(0,temp.length)]
-				temp = SurnameWL.concat(SurnameSLV).concat(SurnameKWR)
-				surname = temp[getRndInteger(0,temp.length)]
-			}
-		} else { // ANY
-			let temp = FemForeENG.concat(FemForeKWR).concat(FemForeSLV)
-			name = temp[getRndInteger(0,temp.length)]
-			temp = SurnameENG.concat(SurnameKWR).concat(SurnameSLV).concat(SurnameWL)
-			surname = temp[getRndInteger(0,temp.length)]
-		}
-	}
-
-	let full = `<b>${name} ${surname}</b>`
-    $("#name").html(full)
-}
-
 const locations = [
 	"Wasland",
 	"Southern Zhesa",
 	"Central Zhesa",
 	"Northern Zhesa",
+]
+
+const locWasland = [
+	"Wasland",
+	"Skelpwice",
+	"Novo Morje",
+	"Runshire",
+	"Volovce",
+	"Medvedje",
+	"Trška Gorica",
+	"Vororter",
+	"Izvirje",
+	"Bialistadt",
+	"Šramovec",
+]
+const locSouthern = [
+	"Port of Zhesa",
+	"Podluka",
+	"Elster",
+]
+const locCentral = [
+	"Zasava",
+	"Hardba",
+	"Velen",
+	"Oster",
+	"Joel",
+	"Zhesa",
+	"New Mullheim",
+	"Dvnovje",
+	"East Marsham",
+	"Zhesa Lake",
+	"Varže",
+	"Zhesan",
+	"Lakescaster",
+]
+const locNorth = [
+	"Dvoreka",
+	"Rossville",
+	"Riverstown",
+	"Kowor",
+	"Zhesill",
+	"Byver",
+	"Lancoast",
 ]
 
 function randChar() {
@@ -633,6 +568,24 @@ function randChar() {
 				from = 0
 			}
 		}
+
+		let fromcity = 0
+		let fromtable = locWasland
+		if (from == 1) {
+			fromtable = locSouthern
+		} else if (from == 2) {
+			fromtable = locCentral
+		} else if (from == 3) {
+			fromtable = locNorth
+		}
+		for (let i = 0; i < value; i++) {
+			if(fromcity < fromtable.length-1) {
+				fromcity++
+			} else {
+				fromcity = 0
+			}
+		}
+		let fromcityString = fromtable[fromcity]
 		////// name
 		let nameString = null
 		let surnameString = null
@@ -905,7 +858,7 @@ function randChar() {
 		}
 		let fromString = locations[from]
 		$("#gender").html(`Gender: ${gendString}`)
-		$("#from").html(`From: ${fromString}`)
+		$("#from").html(`From: ${fromcityString}, ${fromString}`)
 	} else {
     	$("#name").html("<b>NOT A NUMBER VALUE or TOO SHORT<b>")
 		$("#gender").html("NOT A NUMBER VALUE or TOO SHORT")
