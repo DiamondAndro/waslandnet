@@ -553,6 +553,7 @@ function randChar() {
 		let lastFourInv = lastFour.split('').reverse().join('') //used for name
 		let firstFour = value.substring(0,4) //used for surname
 		let firstFourInv = firstFour.split('').reverse().join('') //used for regional variants
+		let middleFour = value.substring((value.length - 4) / 2,(value.length + 4) / 2) // used for city
 		//
 		let gend = 1 // 1 male, 0 fem
 		if (lastDig%2 == 0) {
@@ -578,7 +579,7 @@ function randChar() {
 		} else if (from == 3) {
 			fromtable = locNorth
 		}
-		for (let i = 0; i < value; i++) {
+		for (let i = 0; i < middleFour; i++) {
 			if(fromcity < fromtable.length-1) {
 				fromcity++
 			} else {
