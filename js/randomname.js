@@ -503,6 +503,18 @@ function setName(gend) {
     let southern = $("#southernzhesa:checked").val()
     let northern = $("#northernzhesa:checked").val()
 
+	let anyregionreal = $("#anyregionreal:checked").val()
+	if (anyregionreal == true) {
+		let rndRegion = getRndInteger(0,2)
+		if (rndRegion == 0) {
+			central = true
+		} else if (rndRegion == 1) {
+			southern = true
+		} else {
+			northern = true
+		}
+	}
+
     // surnames are here, since they aren't gendered
     // let surname = Surname[getRndInteger(0,Surname.length)]
 	let surname = null
