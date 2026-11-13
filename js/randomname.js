@@ -499,11 +499,11 @@ function getRndInteger(min, max) {
 }
 
 function setName(gend) {
-	let central = $("#centralzhesa:checked").val()
-    let southern = $("#southernzhesa:checked").val()
-    let northern = $("#northernzhesa:checked").val()
+	let central = $("#centralzhesa:checked").is(":checked")
+    let southern = $("#southernzhesa:checked").is(":checked")
+    let northern = $("#northernzhesa:checked").is(":checked")
 
-	let anyregionreal = $("#anyregionreal:checked").val()
+	let anyregionreal = $("#anyregionreal:checked").is(":checked")
 	if (anyregionreal == true) {
 		let rndRegion = getRndInteger(0,2)
 		if (rndRegion == 0) {
